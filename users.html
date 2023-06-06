@@ -32,12 +32,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 
-    <script src="navigation.js"></script>
+  <script src="navigation.js"></script>
 
 </head>
 
 <body>
- 
+
 
   <div class="container">
     <table id="table" class="table table-striped table-bordered">
@@ -77,12 +77,12 @@
               if (keys[j] === "address") {
                 const address = data[i].address;
                 cellText = `${address.street} ${address.suite} \n ${address.city} ${address.zipcode} \n\n Lat: ${address.geo.lat} \n Lng: ${address.geo.lng}`;
-               } 
+              }
               //else if (keys[j] === "geo") {
               //   const geo = data[i].address.geo;
               //   cellText = `Lat: ${geo.lat}, Lng: ${geo.lng}`;
               // }
-               else if (keys[j] === "company") {
+              else if (keys[j] === "company") {
                 const company = data[i].company;
                 cellText = `${company.name}, ${company.catchPhrase}, ${company.bs}`;
               } else {
