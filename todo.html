@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="navigation.js"></script>
+
+</head>
+
+<body>
+  
+
+    <content>
+        <input id="toDo" placeholder="Enter a ToDo Id between 1 and 200" min="1" max="200">
+        <button id="btnClicked">Submit</button>
+        <pre id="messageArea"></pre>
+    </content>
+
+    <script>
+        const toDo = document.getElementById("toDo")
+        const btnClicked = document.getElementById("btnClicked")
+        const output = document.getElementById("messageArea")
+
+        btnClicked.addEventListener("click", () => {
+            fetch("https://jsonplaceholder.typicode.com/todos")
+                .then(response => response.json())
+                .then(data => {
+                    output.textContent = ""; // Clear previous content
+                    for (i = 0; i < data.length; i++) {
+                        const d = data[i];
+                        if (d.id == toDo.value) {
+                            output.textContent = `User Id: ${d.userId}
+Title: ${d.title}
+Completed: ${d.completed}`;
+                            break; // Stop searching once found
+                        }
+                    }
+                });
+        });
+
+        toDo.addEventListener("input", () => {
+            fetch("https://jsonplaceholder.typicode.com/todos")
+                .then(response => response.json())
+                .then(data => {
+                    output.textContent = ""; // Clear previous content
+                    for (i = 0; i < data.length; i++) {
+                        const d = data[i];
+                        if (d.id == toDo.value) {
+                            output.textContent = `User Id: ${d.userId}
+Title: ${d.title}
+Completed: ${d.completed}`;
+                            break; // Stop searching once found
+                        }
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>
