@@ -76,11 +76,13 @@
               // Handle nested objects
               if (keys[j] === "address") {
                 const address = data[i].address;
-                cellText = `${address.street}, ${address.suite}, ${address.city}, ${address.zipcode}`;
-              } else if (keys[j] === "geo") {
-                const geo = data[i].address.geo;
-                cellText = `Lat: ${geo.lat}, Lng: ${geo.lng}`;
-              } else if (keys[j] === "company") {
+                cellText = `${address.street} ${address.suite} \n ${address.city} ${address.zipcode} \n\n Lat: ${address.geo.lat} \n Lng: ${address.geo.lng}`;
+               } 
+              //else if (keys[j] === "geo") {
+              //   const geo = data[i].address.geo;
+              //   cellText = `Lat: ${geo.lat}, Lng: ${geo.lng}`;
+              // }
+               else if (keys[j] === "company") {
                 const company = data[i].company;
                 cellText = `${company.name}, ${company.catchPhrase}, ${company.bs}`;
               } else {
